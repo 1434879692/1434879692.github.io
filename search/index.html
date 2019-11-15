@@ -144,7 +144,7 @@
     // 获取每页的页码数
     var pageSize = '10'
     var useLeancloud = ''
-    var useComment = ('false' === 'true')
+    var useComment = ('true' === 'true')
     $.getJSON('/content.json', function (json) {
       $('#search-breadcrumb').append(`搜索'${s}'的结果`)
       var result = getArticles(s, 'posts', json).concat(getArticles(s, 'pages', json))
@@ -352,6 +352,18 @@
     </div>
 </aside>
     
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
     <!-- 要配置好leancloud才能开启此小工具 -->
     
     
@@ -521,12 +533,34 @@
     window.slideConfig = {
       prefix: '/imgs/slide/background',
       ext: 'jpg',
-      maxCount: '6'
+      maxCount: '1'
     }
 </script>
 <script src="/js/hs.js"></script>
 <script src="/js/blog.js"></script>
 
 
+
+<script src="https://myau.moe/js/comment/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = 'Thu Nov 14 2019 23:05:40 GMT+0800'
+      window.commentConfig.owner = '1434879692'
+      window.commentConfig.repo = '1434879692.github.io'
+      window.commentConfig.client_id = '10a0e19fa0cd6734c238'
+      window.commentConfig.client_secret = '4aeb3fdd978f413525fd66175f1f52497b965b66'
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+      	id: 'Thu Nov 14 2019 23:05:40 GMT+0800',
+        owner: '1434879692',
+        repo: '1434879692.github.io',
+        client_id: '10a0e19fa0cd6734c238',
+        client_secret: '4aeb3fdd978f413525fd66175f1f52497b965b66',
+        redirect_uri: ''
+      }
+    }
+</script>
+<script src="/js/comment/gitment.js"></script>
 
 </html>
